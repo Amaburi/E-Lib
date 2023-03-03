@@ -73,7 +73,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $request->validate([
-            'imagename' => 'required|string|max:255',
+            'file' => 'image|nullable',
             'code' => 'string|max:6|nullable|unique:books,code,'.$book->id,
             'name' => 'required|string|max:255|unique:books,name,'.$book->id,
             'writer' => 'required|string|max:255',
@@ -88,7 +88,17 @@ class BookController extends Controller
                 'code' => $code
             ]);
         }
+        if ($request->hasFile('file')) {
+            $file = $request->file;
+            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $fileName = $fileName.'_'.time().'.'.$file->getClientOriginalExtension();
 
+            $request->file->storeAs('public/images', $fileName);
+
+            $request->merge([
+                'photo' => $fileName
+            ]);
+        }
         $book->update($request->all());
 
         return response()->json(['msg' => 'Success Update Book']);
@@ -117,6 +127,11 @@ class BookController extends Controller
         return $books;
     }
 
+    public function show(Book $book)
+    {
+        return view('book.show', compact('book'));
+    }
+
     // Get Datatable
     public function datatable()
     {
@@ -124,13 +139,14 @@ class BookController extends Controller
 
         return Datatables::of($books)
                     ->addIndexColumn()
-                    ->addColumn('action', function ()
+                    ->addColumn('action', function ($book)
                     {
-                        $btn = '
-                            <button class="btn btn-success btn-sm edit">Edit</button>
-                            <button class="btn btn-danger btn-sm delete">Delete</button>
-                        ';
-                        return $btn;
+                        $btn = "
+                        <a class='btn btn-info btn-sm' href=".route('book.show', $book->id).">Show</a>
+                        <button class='btn btn-success btn-sm edit'>Edit</button>
+                        <button class='btn btn-danger btn-sm delete'>Delete</button>
+                    ";
+                    return $btn;
                     })
                     ->make(true);
     }

@@ -24,6 +24,7 @@
 				<table class="table table-bordered table-striped" width="100%">
 					<thead>
 						<tr>
+							
 							<th>No</th>
 							<th>Code</th>
 							<th>Name</th>
@@ -50,8 +51,14 @@
 			@csrf
 			@method('put')
 			<div class="form-group">
+				<label>Image</label>
+				<input type="file" class="form-control" name="image" placeholder="image" required autofocus>
+
+				<span class="invalid-feedback"></span>
+			</div>
+			<div class="form-group">
 				<label>Code</label>
-				<input type="text" class="form-control" name="code" placeholder="Code" autofocus>
+				<input type="text" class="form-control" name="code" placeholder="Code" required autofocus>
 
 				<span class="invalid-feedback"></span>
 			</div>
@@ -83,7 +90,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-primary" type="submit">Update</button>
+			<button class="btn btn-primary" type="submit" >Update</button>
 			<button class="btn btn-danger" data-dismiss="modal">Cancel</button>
 		</div>
 	</form>

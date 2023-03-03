@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function ()
 		Route::put('/save', 'ProfileController@save')->name('save');
 	});
 
-	Route::resource('/book', 'BookController')->except(['show', 'edit']);
+	Route::resource('/book', 'BookController')->except(['edit']);
 	Route::resource('/category', 'CategoryController')->except(['show', 'edit', 'create']);
 	Route::resource('/loan', 'LoanController')->except(['show', 'edit', 'update']);
 	Route::resource('/member', 'MemberController')->except(['edit']);

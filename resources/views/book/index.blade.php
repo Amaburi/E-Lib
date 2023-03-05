@@ -50,12 +50,7 @@
 		<div class="modal-body">
 			@csrf
 			@method('put')
-			<div class="form-group">
-				<label>Image</label>
-				<input type="file" class="form-control" name="image" placeholder="image" required autofocus>
-
-				<span class="invalid-feedback"></span>
-			</div>
+			
 			<div class="form-group">
 				<label>Code</label>
 				<input type="text" class="form-control" name="code" placeholder="Code" required autofocus>

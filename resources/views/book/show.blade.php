@@ -39,6 +39,10 @@
 									<th>Year</th>
 									<td>{{ $book->year }}</td>
 								</tr>
+								<tr>
+									<th>Category Id</th>
+									<td>{{ $book->category_id }}</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>

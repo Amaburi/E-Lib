@@ -73,7 +73,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $request->validate([
-            'file' => 'image|nullable',
+            'image' => 'nullable|string|max:255',
             'code' => 'string|max:6|nullable|unique:books,code,'.$book->id,
             'name' => 'required|string|max:255|unique:books,name,'.$book->id,
             'writer' => 'required|string|max:255',
@@ -88,17 +88,7 @@ class BookController extends Controller
                 'code' => $code
             ]);
         }
-        if ($request->hasFile('file')) {
-            $file = $request->file;
-            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            $fileName = $fileName.'_'.time().'.'.$file->getClientOriginalExtension();
-
-            $request->file->storeAs('public/images', $fileName);
-
-            $request->merge([
-                'photo' => $fileName
-            ]);
-        }
+        
         $book->update($request->all());
 
         return response()->json(['msg' => 'Success Update Book']);

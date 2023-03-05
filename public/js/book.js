@@ -34,6 +34,7 @@ $(function () {
 		modal.find('[name=name]').val(data.name)
 		modal.find('[name=writer]').val(data.writer)
 		modal.find('[name=year]').val(data.year)
+
 		modal.find('[name=category_id]').append(`<option value='${data.category.id}' selected>${data.category.name}</option>`)
 		modal.find('input').removeClass('is-invalid')
 

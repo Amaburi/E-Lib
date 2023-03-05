@@ -15,7 +15,7 @@
 					@csrf
 					<div class="form-group">
 						<label>Image</label>
-						<input type="file" class="form-control @error('code') is-invalid @enderror" name="image" placeholder="image" value="{{ old('imagename') }}" autofocus>
+						<input type="file" class="form-control @error('code') is-invalid @enderror" name="image" placeholder="image" value="{{ old('image') }}" autofocus>
 						
 
 						@error('code')

@@ -42,7 +42,7 @@
 	<div class="modal" id="edit">
 	<div class="modal-dialog">
 	<div class="modal-content">
-	<form>
+	<form enctype="multipart/form-data">
 		<div class="modal-header">
 			<h5 class="modal-title">Edit Data</h5>
 			<button class="close" data-dismiss="modal">&times;</button>

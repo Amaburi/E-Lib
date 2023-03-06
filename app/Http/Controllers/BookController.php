@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Storage;
 use Yajra\Datatables\Datatables;
 
 class BookController extends Controller
@@ -20,6 +20,7 @@ class BookController extends Controller
         if ($request->ajax()) {
             return $this->datatable();
         }
+
         return view('book.index');
     }
 
@@ -41,8 +42,8 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|string|max:255',
+        $validator = validator($request->all(), [
+            'image' => 'required|image|mimes:jpg,jpeg,png,svg|max:4092|dimensions:min_width=100,min_height=100',
             'code' => 'string|max:6|unique:books|nullable',
             'name' => 'required|string|max:255|unique:books',
             'writer' => 'required|string|max:255',
@@ -50,15 +51,26 @@ class BookController extends Controller
             'category_id' => 'required|exists:categories,id'
         ]);
 
-        if (!$request->code) {
-            $code = Str::upper(Str::random(6));
-
-            $request->merge([
-                'code' => $code
-            ]);
+        if ($validator->fails()) {
+            return back();
         }
 
-        Book::create($request->all());
+        $validated = $validator->validated();
+
+        $file = $validated['image'];
+        $fileName = preg_replace('/\s+/', '', uniqid() . '_' . date('dmY') . '_' . $request->user()->username . '.' . $file->getClientOriginalExtension());
+
+        if (!Storage::exists('/public/'.$fileName)) {
+            $file->storeAs('public', $fileName);
+        }
+
+        $validated['image'] = $fileName;
+
+        if (!$validated['code']) {
+            $validated['code'] = Str::upper(Str::random(6));
+        }
+
+        Book::create($validated);
 
         return redirect('book')->with('success', 'Success Create Book');
     }
@@ -72,8 +84,8 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $request->validate([
-            'image' => 'nullable|string|max:255',
+        $validator = validator($request->all(), [
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,svg|max:4092|dimensions:min_width=100,min_height=100',
             'code' => 'string|max:6|nullable|unique:books,code,'.$book->id,
             'name' => 'required|string|max:255|unique:books,name,'.$book->id,
             'writer' => 'required|string|max:255',

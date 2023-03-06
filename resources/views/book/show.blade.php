@@ -9,7 +9,7 @@
 		<div class="col-md-4">
 			<div class="card shadow mb-4">
 				<div class="card-body">
-					<img src="{{ asset('images/' . $book->image)}}" class="img-fluid">
+					<img src="{{ asset('storage/' . $book->image)}}" class="img-fluid">
 				</div>
 			</div>
 		</div>
@@ -17,7 +17,7 @@
 		<div class="col-md-8">
 			<div class="card shadow mb-4">
 				<div class="card-header">
-					<h6 class="font-weight-bold text-primary m-0">Data Member</h6>
+					<h6 class="font-weight-bold text-primary m-0">Book Details</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">

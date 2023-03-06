@@ -11,7 +11,7 @@
 				<h6 class="font-weight-bold text-primary m-0">Add Book</h6>
 			</div>
 			<div class="card-body">
-				<form action="{{ route('book.store') }}" method="post">
+				<form action="{{ route('book.store') }}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
 						<label>Image</label>

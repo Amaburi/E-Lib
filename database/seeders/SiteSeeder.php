@@ -14,7 +14,7 @@ class SiteSeeder extends Seeder
     public function run()
     {
     	\App\Models\Site::create([
-    		'name' => 'Library',
+    		'name' => 'E-Lib',
     		'address' => 'Indonesia'
     	]);
     }

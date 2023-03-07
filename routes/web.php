@@ -17,11 +17,11 @@ Auth::routes([
 	'verivy' => false,
 	'reset' => false
 ]);
+Route::get('/', 'userdash@index')->name('userdash');
 
 Route::middleware('auth')->group(function ()
 {
-	
-	Route::get('/', 'HomeController@index')->name('home');
+	Route::get('/dashboard', 'HomeController@index')->name('home');
 
 	Route::post('/book/get', 'BookController@get')->name('book.get');
 	Route::post('/category/get', 'CategoryController@get')->name('category.get');

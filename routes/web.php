@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\userdash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +18,9 @@ Auth::routes([
 	'reset' => false
 ]);
 Route::get('/', 'userdash@index')->name('userdash');
+
+Route::get('/search', 'userdash@search')->name('search');
+
 
 Route::middleware('auth')->group(function ()
 {

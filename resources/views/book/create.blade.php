@@ -48,6 +48,14 @@
 						@enderror
 					</div>
 					<div class="form-group">
+						<label>Publisher</label>
+						<input type="text" class="form-control @error('writer') is-invalid @enderror" name="publisher" placeholder="Publisher" value="{{ old('publisher') }}" required>
+
+						@error('writer')
+							<span class="invalid-feedback">{{ $message }}</span>
+						@enderror
+					</div>
+					<div class="form-group">
 						<label>Category</label>
 						<select name="category_id" class="form-control custom-select" required></select>
 

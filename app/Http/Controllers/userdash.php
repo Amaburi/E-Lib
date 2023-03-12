@@ -21,10 +21,16 @@ class userdash extends Controller
 
         $books = DB::table('books')
                 ->where('name', 'like', '%'.$query.'%')
+                ->orWhere('code', 'like', '%'.$query.'%')
+                ->orWhere('writer', 'like', '%'.$query.'%')
+                ->orWhere('year', 'like', '%'.$query.'%')
                 ->get();
 
         return view('userdash.index', compact('books'));
     }
 
-
+    public function show($id) {
+        $book = Book::find($id);
+        return view('userdash.show', ['book' => $book]);
+    }
 }

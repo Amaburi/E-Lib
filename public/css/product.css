@@ -95,3 +95,48 @@ header .logo img{
 .navigation li:hover a{
     color: rgb(255, 38, 0);
 }
+
+.login-btn {
+    background-color: #4CAF50; /* Green background color */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 12px 24px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline-block */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Add cursor on hover */
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+  
+.login-btn:hover {
+    background-color: #3e8e41; /* Darker green background color on hover */
+}
+
+.loginimg{
+    width: 50px;
+    height: 50px;
+}
+
+
+.span2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+#spanname{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+#product1 .pro .des .span1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+#product1 .pro .des .span2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color:burlywood;
+}

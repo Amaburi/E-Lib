@@ -47,6 +47,7 @@ class BookController extends Controller
             'code' => 'string|max:6|unique:books|nullable',
             'name' => 'required|string|max:255|unique:books',
             'writer' => 'required|string|max:255',
+            'publisher' => 'required|string|max:255',
             'year' => 'required|integer|min:1800|max:'.(date('Y')+1),
             'category_id' => 'required|exists:categories,id'
         ]);
@@ -89,6 +90,7 @@ class BookController extends Controller
             'code' => 'string|max:6|nullable|unique:books,code,'.$book->id,
             'name' => 'required|string|max:255|unique:books,name,'.$book->id,
             'writer' => 'required|string|max:255',
+            'publisher' => 'required|string|max:255',
             'year' => 'required|integer|min:1800|max:'.(date('Y')+1),
             'category_id' => 'required|exists:categories,id'
         ]);

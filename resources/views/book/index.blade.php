@@ -78,6 +78,12 @@
 				<span class="invalid-feedback"></span>
 			</div>
 			<div class="form-group">
+				<label>Publisher</label>
+				<input type="text" class="form-control" name="publisher" placeholder="Publisher" required>
+				
+				<span class="invalid-feedback"></span>
+			</div>
+			<div class="form-group">
 				<label>Year</label>
 				<input type="number" maxlength="4" class="form-control" name="year" placeholder="Year" required>
 				

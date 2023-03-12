@@ -36,6 +36,10 @@
 									<td>{{ $book->writer }}</td>
 								</tr>
 								<tr>
+									<th>Publisher</th>
+									<td>{{ $book->publisher }}</td>
+								</tr>
+								<tr>
 									<th>Year</th>
 									<td>{{ $book->year }}</td>
 								</tr>

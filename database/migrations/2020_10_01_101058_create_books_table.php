@@ -19,6 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('code', 6);
             $table->string('name');
             $table->string('writer');
+            $table->string('publisher');
             $table->string('year');
             $table->integer('stock')->default(0);
             $table->timestamps();

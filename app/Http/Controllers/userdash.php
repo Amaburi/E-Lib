@@ -24,6 +24,7 @@ class userdash extends Controller
                 ->orWhere('code', 'like', '%'.$query.'%')
                 ->orWhere('writer', 'like', '%'.$query.'%')
                 ->orWhere('year', 'like', '%'.$query.'%')
+                ->orWhere('publisher', 'like', '%'.$query.'%')
                 ->get();
 
         return view('userdash.index', compact('books'));

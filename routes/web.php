@@ -18,6 +18,7 @@ Auth::routes([
 	'verivy' => false,
 	'reset' => false
 ]);
+
 Route::get('/', 'userdash@index')->name('userdash');
 
 Route::get('/search', 'userdash@search')->name('search');
@@ -64,3 +65,4 @@ Route::middleware('auth')->group(function ()
 	Route::resource('/member', 'MemberController')->except(['edit']);
 
 });
+//MADE BY JY

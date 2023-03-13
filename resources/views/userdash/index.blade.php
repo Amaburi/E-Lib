@@ -27,6 +27,9 @@
             </br>
                 <span class="span1">Year released :</span>
                 <span class="span2">{{$book->year}}</span>
+            </br>
+                <span class="span1">Stock In Library :</span>
+                <span class="span2">{{$book->stock}}</span>
             </div>
         </div>
         @endforeach

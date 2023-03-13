@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="navbarrr">
 
-    <a href="{{ route('userdash') }}">
-        <div class="sidebar-brand-icon" id="icon">
-            <i class="fa fa-university" id="univ"></i>
-            <span class="spantopbar">E-Lib</span>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('userdash') }}" style="text-decoration: none; color:rgb(36, 34, 32)">
+        <div class="sidebar-brand-icon">
+          <i class="fa fa-university"></i>
         </div>
-    </a>
+        <div class="sidebar-brand-text mx-3"><h2>E-Lib</h2></div>
+      </a>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 

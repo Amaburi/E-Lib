@@ -6,8 +6,12 @@
 
 </head>
 <body>
+  
+  <div id="content-wrapper" class="d-flex flex-column">
+    @include('__includes.topbaruser')
     @hasSection ('page-content')
-        @yield('page-content')
+      @yield('page-content')
     @endif
+  </div>
 </body>
 </html>

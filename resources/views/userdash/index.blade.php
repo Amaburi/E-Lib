@@ -4,14 +4,12 @@
 
 @section('page-content')
 <section id="product1" class="section-p1">
-    <a href="{{route('userdash')}}"><h2>Book Lists</h2></a>
+    
     <div style="width: 600px;">
         <form class="d-flex" action="{{ route('search') }}" method="GET">
             <input class="form-control me-2 rounded-pill" style="background: rgba(255, 255, 255, 0.15);" type="text" name="query" placeholder="Cari  buku" aria-label="Cari  buku" aria-describedby="basic-addon2" >
         </form>
     </div>
-    
-    <a href="{{route('home')}}"><img src="{{asset('images/loginbtn.png')}}" class="loginimg"></a>
     <div class="pro-container">
         @forEach($books as $book)
          <div class="pro">

@@ -140,3 +140,15 @@ header .logo img{
     font-size: 20px;
     color:burlywood;
 }
+#navbarr #icon  #univ{
+    left: 40;
+}
+.navbar .sidebar-brand-icon{
+    font-size: 4rem;
+}
+.navbar .sidebar-brand-icon span .spantopbar{
+    font-size: 2rem;
+}
+.navbar .navbar-nav .nav-item .nav-link .userfa{
+    top: 10;
+}
